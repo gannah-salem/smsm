@@ -1,0 +1,967 @@
+/* Password Page Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #FFDDE6 0%, #FFFFFF 50%, #FFDDE6 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Password Page */
+.password-page {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #FFDDE6 0%, #FFFFFF 50%, #FFDDE6 100%);
+}
+
+.password-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    align-items: center;
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(255, 107, 157, 0.15);
+    max-width: 800px;
+    width: 100%;
+}
+
+/* Photo Section */
+.photo-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo-frame {
+    position: relative;
+    width: 200px;
+    height: 250px;
+}
+
+.photo-border {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background: transparent;
+    padding: 0;
+    position: relative;
+}
+
+.couple-photo {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: 0 5px 15px rgba(255, 107, 157, 0.2);
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Password Section */
+.password-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.password-box {
+    width: 100%;
+    max-width: 350px;
+}
+
+.password-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.password-display {
+    margin-bottom: 2rem;
+}
+
+/* Passcode dots UI */
+.passcode-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 15px 12px;
+}
+
+.passcode-dots .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #dee2e6;
+    border: 1px solid #ced4da;
+}
+
+.passcode-dots .dot.filled {
+    background: #FF69B4;
+    border-color: #FF69B4;
+}
+
+.passcode-message {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: white;
+    border-radius: 10px;
+    padding: 15px 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    animation: slideInRight 0.3s ease-out;
+    font-weight: 600;
+}
+
+.passcode-message.error { 
+    border-left: 4px solid #FF6B6B;
+    color: #640606;
+}
+
+.passcode-message.success { 
+    border-left: 4px solid #2BB673;
+    color: #2BB673;
+}
+
+/* Keypad */
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.key {
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 12px;
+    background: white;
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+    border: 1px solid #e9ecef;
+}
+
+.key:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background: #f8f9fa;
+}
+
+.key:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.key.clear {
+    background: white;
+    color: #FF6B6B;
+    border: 2px solid #FF6B6B;
+}
+
+.key.enter {
+    background: #FF69B4;
+    color: white;
+    border: 2px solid #FF69B4;
+    grid-column: span 2;
+    width: 130px;
+}
+
+.key.clear:hover {
+    background: #FF6B6B;
+    color: white;
+}
+
+.key.enter:hover {
+    background: #FF1493;
+    border-color: #FF1493;
+}
+
+/* Error Message */
+.error-message {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: white;
+    border-radius: 10px;
+    padding: 15px 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    border-left: 4px solid #FF6B6B;
+    z-index: 1000;
+    animation: slideInRight 0.3s ease-out;
+}
+
+.error-message .error-title {
+    color: #FF6B6B;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0 0 5px 0;
+}
+
+.error-message .error-subtitle {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+/* Main Page Styles */
+.main-page {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Videos */
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+.text-background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    opacity: 0.2;
+}
+
+/* Birthday Card Container */
+.birthday-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+}
+
+.birthday-card {
+    
+    border-radius: 20px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 20px 60px rgba(255, 107, 157, 0.3);
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+.birthday-card.shrunk {
+    transform: scale(0.8);
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background: #FFB6C1;
+    padding: 20px;
+    text-align: left;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #FF1493;
+    margin: 0;
+}
+
+.card-content {
+    padding: 30px;
+    text-align: left;
+    position: relative;
+}
+
+.message-container {
+    position: relative;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 0;
+}
+
+.greeting {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 15px 0;
+}
+
+.message {
+    font-size: 1rem;
+    color: white;
+    line-height: 1.6;
+    margin: 0 0 25px 0;
+}
+
+.card-video {
+    width: 100%;
+    height: 200px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.main-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.card-navigation {
+    background: #FFB6C1;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.nav-btn {
+    background: #f0f0f0;
+    border: 2px solid #FFB6C1;
+    border-radius: 10px;
+    padding: 12px 16px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    color: #333;
+    flex: 1;
+}
+
+.nav-btn:hover {
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 157, 0.3);
+}
+
+.nav-btn i {
+    font-size: 1.2rem;
+    color: #FF1493;
+}
+
+.nav-btn span {
+    font-weight: 500;
+}
+
+/* Expanded Content Styles */
+.expanded-content {
+    position: relative;
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 20px 60px rgba(255, 107, 157, 0.3);
+    margin: 20px auto;
+    max-width: 500px;
+    width: 100%;
+    animation: slideInUp 0.5s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #FFB6C1;
+}
+
+.back-btn {
+    background: #FFB6C1;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #FF69B4;
+    transform: scale(1.1);
+}
+
+.content-header h2 {
+    color: #FF1493;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.content-body {
+    flex: 1;
+}
+
+/* Profile Section */
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 20px;
+    border: 3px solid #FFB6C1;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-text {
+    text-align: left;
+    line-height: 1.8;
+}
+
+.profile-text p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #FFF5F8;
+    border-radius: 15px;
+    border-left: 5px solid #FF69B4;
+}
+
+/* Section Image */
+.section-image {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.section-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 15px;
+    object-fit: cover;
+    border: 3px solid #FFB6C1;
+    box-shadow: 0 5px 15px rgba(255, 107, 157, 0.3);
+}
+
+/* Film Strip Styles */
+.film-strips-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.film-strip-vertical {
+    background: #000;
+    border-radius: 15px;
+    padding: 20px 15px;
+    position: relative;
+    width: 200px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.film-strip-vertical::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 15px;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 6px,
+        #333 6px,
+        #333 10px
+    );
+}
+
+.film-strip-vertical::after {
+    content: '';
+    position: absolute;
+    right: 8px;
+    top: 0;
+    bottom: 0;
+    width: 15px;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 6px,
+        #333 6px,
+        #333 10px
+    );
+}
+
+.film-strip::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 8px,
+        #666 8px,
+        #666 12px
+    );
+}
+
+.film-strip::after {
+    content: '';
+    position: absolute;
+    right: 10px;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 8px,
+        #666 8px,
+        #666 12px
+    );
+}
+
+.film-frame {
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 8px;
+    position: relative;
+}
+
+.film-frame:last-child {
+    margin-bottom: 0;
+}
+
+.film-photo {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.video-frame {
+    background: #333;
+    border-radius: 20px;
+    padding: 20px;
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+
+.video-frame::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 8px,
+        #666 8px,
+        #666 12px
+    );
+}
+
+.video-frame::after {
+    content: '';
+    position: absolute;
+    right: 10px;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 8px,
+        #666 8px,
+        #666 12px
+    );
+}
+
+.video-frame .main-video {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.collect-btn {
+    background: linear-gradient(135deg, #FF69B4, #FF1493);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+}
+
+.collect-btn:hover {
+    background: linear-gradient(135deg, #FF1493, #FF69B4);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4);
+}
+
+/* Envelope Styles */
+.envelope-container {
+    text-align: center;
+    padding: 40px 20px;
+    position: relative;
+}
+
+/* Decorative Triangle */
+.decorative-triangle {
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-top: 20px solid #FFB6C1;
+    margin: 0 auto 20px;
+}
+
+/* Envelope Wrapper */
+.envelope-wrapper {
+    position: relative;
+    display: inline-block;
+    margin: 20px 0;
+}
+
+/* Corner Decorations */
+.corner-decoration {
+    position: absolute;
+    z-index: 10;
+}
+
+.corner-decoration.top-left {
+    top: -15px;
+    left: -15px;
+}
+
+.corner-decoration.top-right {
+    top: -15px;
+    right: -15px;
+}
+
+.corner-decoration.bottom-left {
+    bottom: -15px;
+    left: -15px;
+}
+
+.corner-decoration.bottom-right {
+    bottom: -15px;
+    right: -15px;
+}
+
+.heart-solid, .heart-outline, .heart-sparkle {
+    font-size: 16px;
+    margin: 2px;
+    display: inline-block;
+}
+
+.balloon {
+    font-size: 20px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+/* Main Envelope */
+.envelope {
+    position: relative;
+    width: 200px;
+    height: 140px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 auto;
+}
+
+.envelope:hover {
+    transform: scale(1.05);
+}
+
+.envelope-body {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #FFB6C1 0%, #FF69B4 50%, #FF1493 100%);
+    border: 3px dashed #FF69B4;
+    border-radius: 15px;
+    position: relative;
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.3);
+}
+
+.envelope-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background: #FF1493;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(255, 20, 147, 0.4);
+    z-index: 5;
+}
+
+.envelope-icon i {
+    color: white;
+    font-size: 20px;
+}
+
+.made-with-love {
+    font-size: 0.9rem;
+    color: #999;
+    margin: 20px 0 10px;
+    font-style: italic;
+}
+
+/* Envelope Message Styles */
+.envelope-message {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.message-content {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(255, 107, 157, 0.3);
+    border: 2px solid #FFB6C1;
+    text-align: center;
+}
+
+.message-content h3 {
+    color: #FF1493;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.message-content p {
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    text-align: left;
+    padding: 10px;
+    background: #FFF5F8;
+    border-radius: 10px;
+    border-left: 3px solid #FF69B4;
+}
+
+.close-message-btn {
+    background: #FF69B4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+.close-message-btn:hover {
+    background: #FF1493;
+    transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .password-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+    
+    .photo-frame {
+        width: 180px;
+        height: 220px;
+    }
+    
+    .keypad {
+        gap: 8px;
+    }
+    
+    .key {
+        width: 50px;
+        height: 50px;
+        font-size: 1rem;
+    }
+    
+    .key.enter {
+        width: 108px;
+    }
+    
+    .birthday-card {
+        max-width: 90%;
+    }
+    
+    .card-title {
+        font-size: 1.3rem;
+    }
+    
+    .greeting {
+        font-size: 1.5rem;
+    }
+    
+    .nav-btn {
+        padding: 10px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .nav-btn i {
+        font-size: 1rem;
+    }
+    
+    .profile-photo {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .film-strip {
+        padding: 15px;
+    }
+    
+    .film-photo {
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .password-container {
+        padding: 1.5rem;
+    }
+    
+    .photo-frame {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .password-title {
+        font-size: 1.5rem;
+    }
+    
+    .key {
+        width: 50px;
+        height: 50px;
+        font-size: 1rem;
+    }
+    
+    .key.enter {
+        width: 110px;
+    }
+    
+    .card-title {
+        font-size: 1.2rem;
+    }
+    
+    .greeting {
+        font-size: 1.3rem;
+    }
+    
+    .nav-btn {
+        padding: 8px 10px;
+        font-size: 0.7rem;
+    }
+}

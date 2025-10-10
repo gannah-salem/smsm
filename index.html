@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smsm's birthday</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Password Page -->
+    <div id="passwordPage" class="password-page">
+        <div class="container">
+            <div class="password-container">
+                <!-- Left Side - Photo -->
+                <div class="photo-section">
+                    <div class="photo-frame">
+                        <div class="photo-border">
+                            <img src="photo1/IMG-20251005-WA0020.jpg" alt="Birthday Photo" class="couple-photo">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Side - Password Input -->
+                <div class="password-section">
+                    <div class="password-box">
+                        <h2 class="password-title">Enter Passcode</h2>
+                        <div class="password-display">
+                            <input type="password" id="passwordInput" placeholder="Enter Passcode" readonly style="position:absolute; left:-9999px;">
+                            <div class="passcode-dots" id="passcodeDots">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                            <div id="passcodeMessage" class="passcode-message" style="display:none;"></div>
+                        </div>
+                        
+                        <!-- Keypad -->
+                        <div class="keypad">
+                            <button class="key" data-number="1">1</button>
+                            <button class="key" data-number="2">2</button>
+                            <button class="key" data-number="3">3</button>
+                            <button class="key" data-number="4">4</button>
+                            <button class="key" data-number="5">5</button>
+                            <button class="key" data-number="6">6</button>
+                            <button class="key" data-number="7">7</button>
+                            <button class="key" data-number="8">8</button>
+                            <button class="key" data-number="9">9</button>
+                            <button class="key clear" data-action="clear">Clear</button>
+                            <button class="key" data-number="0">0</button>
+                            <button class="key enter" data-action="enter">Enter</button>
+                        </div>
+                        
+                        <!-- Error Message -->
+                        <div id="errorMessage" class="error-message" style="display: none;">
+                          <div class="error-title">wrong</div>
+                        <div class="error-subtitle">Try again!</div>
+                     </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Birthday Page (Hidden Initially) -->
+    <div id="mainPage" class="main-page" style="display: none;">
+        <!-- Background Video -->
+        <video class="background-video"controls autoplay  loop>
+            <source src="vid/WhatsApp Video 2025-10-10 at 10.30.44_9fe42628.mp4" type="video/mp4">
+        </video>
+        
+        
+        
+        <!-- Birthday Card -->
+        <div class="birthday-card-container">
+            <div class="birthday-card" id="mainCard">
+                <!-- Header -->
+                <div class="card-header">
+                    <h1 class="card-title">happy birthday!</h1>
+                </div>
+                
+                <!-- Main Content -->
+                <div class="card-content" id="mainContent">
+                    <div class="message-container">
+                        <h2 class="greeting">hi,smsmte🩷</h2>
+                        <p class="message">Wishing you a day filled with love, joy, and all the things that make you happiest 🩷</p>
+                    </div>
+
+                    <!-- Video under the text -->
+                    <div class="card-video">
+                        <video autoplay muted loop class="main-video">
+                            <source src="birthday-video.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                
+                <!-- Bottom Navigation -->
+                <div class="card-navigation">
+                    <button class="nav-btn profile-btn" onclick="openProfile()">
+                        <i class="fas fa-user"></i>
+                        <span>Profile</span>
+                    </button>
+                    <button class="nav-btn twenty-btn" onclick="openTwentyTwo()">
+                        <i class="fas fa-birthday-cake"></i>
+                        <span>Twenty two</span>
+                    </button>
+                    <button class="nav-btn read-btn" onclick="openReadMe()">
+                        <i class="fas fa-envelope"></i>
+                        <span>Read me</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Profile Content - Outside main card -->
+        <div class="expanded-content" id="profileContent" style="display: none;">
+            <div class="content-header">
+                <button class="back-btn" onclick="goBackToMain()">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h2>a little about you</h2>
+            </div>
+            <div class="content-body">
+                <div class="profile-photo">
+                    <img src="photo2/WhatsApp Image 2025-10-05 at 12.16.20_3e2b595b.jpg" alt="Profile Photo" class="profile-img">
+                </div>
+                <div class="profile-text">
+                    <p>My favorite man, the most beautiful coincidence that happened in my life entered me the most beautiful and sweetest heart in the world 🩷</p>
+                    <p>Every year and you are good, my love, and I hope you reach all the life and you are next to me, O Lord, and I see you always happy and good, and I know how to make you comfortable always by my side</p>
+                    <p>I love you so much ya smsm 🩷</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Twenty Two Content - Outside main card -->
+        <div class="expanded-content" id="twentyTwoContent" style="display: none;">
+            <div class="content-header">
+                <button class="back-btn" onclick="goBackToMain()">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h2>twenty two</h2>
+            </div>
+            <div class="content-body">
+                <!-- Image under title -->
+                <div class="section-image">
+                    <img src="ph33/ph1.jpg" alt="Twenty Two Photo" class="section-img">
+                </div>
+                
+                <!-- Film strips container (hidden initially) -->
+                <div class="film-strips-container" id="filmStripsContainer" style="display: none;">
+                    <!-- Film Strip with 4 photos -->
+                    <div class="film-strip-vertical">
+                        <div class="film-frame">
+                            <img src="ph33/ph2.jpg" alt="Photo 1" class="film-photo">
+                        </div>
+                        <div class="film-frame">
+                            <img src="ph33/ph3.jpg" alt="Photo 2" class="film-photo">
+                        </div>
+                        <div class="film-frame">
+                            <img src="ph33/ph4.jpg" alt="Photo 3" class="film-photo">
+                        </div>
+                        <div class="film-frame">
+                            <img src="ph33/ph5.jpg" alt="Photo 4" class="film-photo">
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="collect-btn" onclick="showFilmStrip()">COLLECT</button>
+            </div>
+        </div>
+        
+        <!-- Read Me Content - Outside main card -->
+        <div class="expanded-content" id="readMeContent" style="display: none;">
+            <div class="content-header">
+                <button class="back-btn" onclick="goBackToMain()">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h2>Read Me</h2>
+            </div>
+            <div class="content-body">
+                <div class="envelope-container">
+                    <!-- Decorative Triangle -->
+                    <div class="decorative-triangle"></div>
+                    
+                    <!-- Envelope with decorations -->
+                    <div class="envelope-wrapper">
+                        <!-- Corner decorations -->
+                        <div class="corner-decoration top-left">
+                            <div class="heart-solid">💖</div>
+                            <div class="heart-outline">💕</div>
+                        </div>
+                        <div class="corner-decoration top-right">
+                            <div class="balloon">🎈</div>
+                        </div>
+                        <div class="corner-decoration bottom-left">
+                            <div class="heart-sparkle">✨💖</div>
+                        </div>
+                        <div class="corner-decoration bottom-right">
+                            <div class="balloon">🎈</div>
+                        </div>
+                        
+                        <!-- Main envelope -->
+                        <div class="envelope" onclick="openEnvelope()">
+                            <div class="envelope-body"></div>
+                            <div class="envelope-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+    </div>
+</div>
+    
+    <button class="collect-btn" onclick="closeEnvelope()">COLLECT</button>
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/2tPIdDBOqekMyKYzLZSbvb?utm_source=generator" width="50%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+</div>
+
+                    
+                    <div class="made-with-love">(طظ فيك يا سمسم)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
